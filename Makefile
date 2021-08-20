@@ -6,14 +6,15 @@
 #    By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/17 19:56:08 by gcollet           #+#    #+#              #
-#    Updated: 2021/08/19 15:46:08 by gcollet          ###   ########.fr        #
+#    Updated: 2021/08/20 10:44:58 by gcollet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 	= push_swap.a
 PROG	= push_swap
 
-SRCS 	= srcs/main.c srcs/dbl_list_lib.c srcs/dbl_list_print.c srcs/utils.c
+SRCS 	= srcs/main.c srcs/dbl_list_lib.c srcs/dbl_list_print.c srcs/utils.c\
+			srcs/operations.c
 OBJS 	= ${SRCS:.c=.o}
 MAIN	= srcs/main.c
 
