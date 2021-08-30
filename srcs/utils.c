@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 15:44:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/20 15:35:29 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/08/30 14:34:24 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	ft_isnum(char *str)
 	}
 }
 
-void	check_duplicate(char **argv)
+//revoir la gestion d'erreur selon le pdf (pour que ca disent juste error ou quitte)
+
+void	check_duplicate(char **argv, int i)
 {
-	int i;
 	int y;
 
-	i = 1;
 	while (argv[i])
 	{
 		y = i + 1;

@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/20 18:16:28 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/08/30 11:48:04 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			main(int argc, char **argv);
 
 /* utils.c */
 void		ft_isnum(char *str);
-void		check_duplicate(char **argv);
+void		check_duplicate(char **argv, int i);
 t_stacks	*initialise_stacks();
 void		clear_stacks(t_stacks *stacks);
 
@@ -58,7 +58,7 @@ void		dlst_print(t_stacks *stacks);
 void		dlst_reverseprint(t_dlist *head);
 
 /* operations.c */
-t_dlist		*swap_a(t_dlist *head);
+t_stack		*swap_a(t_stack *stack);
 t_stack		*rotate_a(t_stack *stackA);
 t_stack		*reverse_rotate_a(t_stack *stackA);
 t_stacks	*push_b(t_stacks *stacks);

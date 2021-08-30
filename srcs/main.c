@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/20 15:29:10 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/08/30 15:02:04 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ void create_dlist(t_stack *stackA, char **argv)
 
 	i = 1;
 	y = 0;
-	check_duplicate(argv);
+	check_duplicate(argv, 1);
 	while(argv[i])
 	{
 		args = ft_split(argv[i++], ' ');
+		check_duplicate(args, 0);
 		while (args[y])
 		{
 			ft_isnum(args[y]);
@@ -51,10 +52,6 @@ int main(int argc, char **argv)
 
 	//fonction illégal :
 	dlst_print(stacks);
-	printf("\nHead A : %d\n", stacks->stackA->head->content);
-	printf("Tail A : %d\n\n", stacks->stackA->tail->content);
-/* 	printf("\nHead B : %d\n", stacks->stackB->head->content);
-	printf("Tail B : %d\n\n", stacks->stackB->tail->content); */
 	//-----------------
 	clear_stacks(stacks);
 
