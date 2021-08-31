@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 12:13:09 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/31 14:29:10 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/08/31 18:37:39 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void	dlst_print(t_stacks *stacks)
 		printf("\n");
 		while(tempA)
 		{
-			printf("%d", tempA->content);
+			printf("%5d", tempA->content);
 			if (tempB == NULL)
 				printf("\n");
 			else
 			{
 				if (tempB)
 				{
-					printf(" %d\n", tempB->content);
+					printf(" %5d\n", tempB->content);
 					tempB = tempB->next;
 				}
 			}
@@ -40,12 +40,12 @@ void	dlst_print(t_stacks *stacks)
 		}
 		while(tempB)
 		{
-			printf(" ");
-			printf(" %d\n", tempB->content);
+			printf("     ");
+			printf(" %5d\n", tempB->content);
 			tempB = tempB->next;
 		}
-		printf("- -\n");
-		printf("A B\n ");
+		printf("    -     -\n");
+		printf("    A     B\n ");
 
 		if (stacks->stackA->head)
 			printf("\nHead A : %d\n", stacks->stackA->head->content);

@@ -6,30 +6,35 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 15:44:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/31 15:12:58 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/08/31 19:36:40 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+void	error(void)
+{
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	exit(EXIT_FAILURE);
+}
+
 void	ft_isnum(char *str)
 {
 	int	i;
+	long temp;
 
 	i = 0;
+	temp = ft_atol(str);
+	if (temp < INT_MIN || temp > INT_MAX)
+		error();
+	if (str[0] == '-')
+		i++;
 	while (str[i])
 	{
 		if (ft_isdigit(str[i++]) == 0)
-		{
-			ft_putstr_fd("Error: \"", 2);
-			ft_putstr_fd(str, 2);
-			ft_putstr_fd("\" is not a number.\n", 2);
-			exit(EXIT_FAILURE);
-		}
+			error();
 	}
 }
-
-//revoir la gestion d'erreur selon le pdf (pour que ca disent juste error ou quitte)
 
 void	check_duplicate(char **argv, int i)
 {
@@ -41,12 +46,7 @@ void	check_duplicate(char **argv, int i)
 		while (argv[y])
 		{
 			if (ft_strcmp(argv[i], argv[y]) == 0)
-			{
-				ft_putstr_fd("Error: \"", 2);
-				ft_putstr_fd(argv[y], 2);
-				ft_putstr_fd("\" is a duplicate\n", 2);
-				exit(EXIT_FAILURE);
-			}
+				error();
 			y++;
 		}
 		i++;
@@ -65,10 +65,7 @@ t_stacks	*initialise_stacks(void)
 	temp->stackB->head = NULL;
 	temp->stackB->tail = NULL;
 	if (temp->stackA == NULL || temp->stackB == NULL)
-	{
-		ft_putstr_fd("Error: Malloc failed\n", 2);
-		exit(EXIT_FAILURE);
-	}
+		error();
 	return (temp);
 }
 

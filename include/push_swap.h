@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/31 15:09:50 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/08/31 19:19:09 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
+# include <limits.h>
 # include "../libft/libft.h"
 #include <stdio.h> //fonction interdit
 
@@ -41,6 +42,7 @@ void		create_dlist(t_stack *stackA, char **argv);
 int			main(int argc, char **argv);
 
 /* utils.c */
+void		error(void);
 void		ft_isnum(char *str);
 void		check_duplicate(char **argv, int i);
 t_stacks	*initialise_stacks(void);

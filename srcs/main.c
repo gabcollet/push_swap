@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/31 15:11:57 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/08/31 18:51:26 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,10 @@ int	main(int argc, char **argv)
 
 	stacks = initialise_stacks();
 	if (argc > 1)
+	{
 		create_dlist(stacks->stackA, argv);
-	else
-		ft_putstr_fd("Error : Missing argument", 2);
-	//fonction illégal :
-	dlst_print(stacks);
-	//-----------------
-	clear_stacks(stacks);
+		dlst_print(stacks);//fonction illégal :
+		clear_stacks(stacks);
+	}
 	return (0);
 }
