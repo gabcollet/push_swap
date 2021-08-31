@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 11:24:11 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/20 14:55:45 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/08/31 15:10:24 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_dlist	*dlst_last(t_dlist *lst)
 
 void	dlst_add_back(t_dlist **head, t_dlist *new)
 {
-	t_dlist *temp;
+	t_dlist	*temp;
 
 	if (*head == NULL)
 	{
@@ -52,7 +52,6 @@ void	dlst_clear(t_stack *stack)
 		free(stack->head);
 		stack->head = temp;
 	}
-	/* free(stack); */
 }
 
 void	dlst_add_front(t_dlist **head, t_dlist *new)

@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 15:44:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/30 14:34:24 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/08/31 15:12:58 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_isnum(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		if (ft_isdigit(str[i++]) == 0)
 		{
@@ -33,7 +33,7 @@ void	ft_isnum(char *str)
 
 void	check_duplicate(char **argv, int i)
 {
-	int y;
+	int	y;
 
 	while (argv[i])
 	{
@@ -53,11 +53,11 @@ void	check_duplicate(char **argv, int i)
 	}
 }
 
-t_stacks	*initialise_stacks()
+t_stacks	*initialise_stacks(void)
 {
-	t_stacks *temp;
-	t_stack *stackA;
-	t_stack *stackB;
+	t_stacks	*temp;
+	t_stack		*stackA;
+	t_stack		*stackB;
 
 	temp = malloc(sizeof(*temp));
 	temp->stackA = malloc(sizeof(*stackA));

@@ -6,23 +6,23 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/30 15:02:04 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/08/31 15:11:57 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void create_dlist(t_stack *stackA, char **argv)
+void	create_dlist(t_stack *stackA, char **argv)
 {
-	t_dlist *temp;
+	t_dlist	*temp;
 	char	**args;
-	int i;
-	int y;
+	int		i;
+	int		y;
 
 	i = 1;
 	y = 0;
 	check_duplicate(argv, 1);
-	while(argv[i])
+	while (argv[i])
 	{
 		args = ft_split(argv[i++], ' ');
 		check_duplicate(args, 0);
@@ -40,20 +40,18 @@ void create_dlist(t_stack *stackA, char **argv)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_stacks *stacks;
+	t_stacks	*stacks;
 
 	stacks = initialise_stacks();
 	if (argc > 1)
 		create_dlist(stacks->stackA, argv);
 	else
 		ft_putstr_fd("Error : Missing argument", 2);
-
 	//fonction illégal :
 	dlst_print(stacks);
 	//-----------------
 	clear_stacks(stacks);
-
 	return (0);
 }

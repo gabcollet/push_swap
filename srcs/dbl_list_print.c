@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 12:13:09 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/30 16:09:16 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/08/31 14:29:10 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,39 @@ void	dlst_print(t_stacks *stacks)
 			printf("Tail B : %d\n", stacks->stackB->tail->content);
 		else
 			printf("Tail B : NULL\n");
-		printf("\nEnter command sa\\ra\\rra\\pb\\quit : ");
+		printf("\nEnter command sa\\sb\\ss\\ra\\rb\\rr\\rra\\rrb\\rrr\\pb\\pa\\quit : ");
 		scanf("%s", str);
 		if (ft_strcmp(str, "sa") == 0)
-			stacks->stackA = swap_a(stacks->stackA);
+			swap(stacks->stackA);
+		if (ft_strcmp(str, "sb") == 0)
+			swap(stacks->stackB);
+		if (ft_strcmp(str, "ss") == 0)
+		{
+			swap(stacks->stackA);
+			swap(stacks->stackB);
+		}
 		if (ft_strcmp(str, "ra") == 0)
-			stacks->stackA = rotate_a(stacks->stackA);
+			rotate(stacks->stackA);
+		if (ft_strcmp(str, "rb") == 0)
+			rotate(stacks->stackB);
+		if (ft_strcmp(str, "rr") == 0)
+		{
+			rotate(stacks->stackA);
+			rotate(stacks->stackB);
+		}
 		if (ft_strcmp(str, "rra") == 0)
-			stacks->stackA = reverse_rotate_a(stacks->stackA);
+			reverse_rotate(stacks->stackA);
+		if (ft_strcmp(str, "rrb") == 0)
+			reverse_rotate(stacks->stackB);
+		if (ft_strcmp(str, "rrr") == 0)
+		{
+			reverse_rotate(stacks->stackA);
+			reverse_rotate(stacks->stackB);
+		}
 		if (ft_strcmp(str, "pb") == 0)
-			stacks = push_b(stacks);
+			push(stacks->stackA, stacks->stackB);
+		if (ft_strcmp(str, "pa") == 0)
+			push(stacks->stackB, stacks->stackA);
 		tempA = stacks->stackA->head;
 		tempB = stacks->stackB->head;
 	}
