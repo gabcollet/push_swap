@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 11:24:11 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/31 15:10:24 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/01 13:51:23 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,22 @@ t_dlist	*dlst_last(t_dlist *lst)
 			lst = lst->next;
 	}
 	return (lst);
+}
+
+int		dlst_count(t_dlist *lst)
+{
+	int	len;
+	
+	len = 0;
+	if (lst)
+	{
+		while (lst->next)
+		{
+			lst = lst->next;
+			len++;
+		}
+	}
+	return (len);
 }
 
 void	dlst_add_back(t_dlist **head, t_dlist *new)

@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/31 19:19:09 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/01 16:39:47 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,13 @@ typedef struct s_stack
 
 typedef struct s_stacks
 {
-	struct s_stack	*stackA;
-	struct s_stack	*stackB;
+	struct s_stack	*stack_a;
+	struct s_stack	*stack_b;
 }					t_stacks;
 
 /* main.c */
-void		create_dlist(t_stack *stackA, char **argv);
+int		find_pivot(t_dlist	*lst);
+void		create_dlist(t_stack *stack_a, char **argv);
 int			main(int argc, char **argv);
 
 /* utils.c */
@@ -50,20 +51,22 @@ void		clear_stacks(t_stacks *stacks);
 
 /* dbl_list_lib.c */
 t_dlist		*dlst_last(t_dlist *lst);
+int			dlst_count(t_dlist *lst);
 t_dlist		*dlst_new(int content);
 void		dlst_add_front(t_dlist **head, t_dlist *new);
 void		dlst_add_back(t_dlist **head, t_dlist *new);
-void		dlst_clear(t_stack *stackA);
+void		dlst_clear(t_stack *stack_a);
 
 /* dbl_list_print.c */
 void		dlst_print(t_stacks *stacks);
 void		dlst_reverseprint(t_dlist *head);
+char		*take_command(t_stacks *stacks, char *str);
 
 /* operations.c */
 void		swap(t_stack *stack);
-void		rotate(t_stack *stackA);
-void		reverse_rotate(t_stack *stackA);
+void		rotate(t_stack *stack_a);
+void		reverse_rotate(t_stack *stack_a);
 void		push(t_stack *src, t_stack *dest);
-void		push_I_hate_norminette(t_stack *src, t_stack *dest);
+void		push_i_hate_norminette(t_stack *src, t_stack *dest);
 
 #endif

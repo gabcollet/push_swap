@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 15:44:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/31 19:36:40 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/01 13:49:39 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	error(void)
 
 void	ft_isnum(char *str)
 {
-	int	i;
-	long temp;
+	int		i;
+	long	temp;
 
 	i = 0;
 	temp = ft_atol(str);
@@ -56,24 +56,24 @@ void	check_duplicate(char **argv, int i)
 t_stacks	*initialise_stacks(void)
 {
 	t_stacks	*temp;
-	t_stack		*stackA;
-	t_stack		*stackB;
+	t_stack		*stack_a;
+	t_stack		*stack_b;
 
 	temp = malloc(sizeof(*temp));
-	temp->stackA = malloc(sizeof(*stackA));
-	temp->stackB = malloc(sizeof(*stackB));
-	temp->stackB->head = NULL;
-	temp->stackB->tail = NULL;
-	if (temp->stackA == NULL || temp->stackB == NULL)
+	temp->stack_a = malloc(sizeof(*stack_a));
+	temp->stack_b = malloc(sizeof(*stack_b));
+	temp->stack_b->head = NULL;
+	temp->stack_b->tail = NULL;
+	if (temp->stack_a == NULL || temp->stack_b == NULL)
 		error();
 	return (temp);
 }
 
 void	clear_stacks(t_stacks *stacks)
 {
-	dlst_clear(stacks->stackA);
-	dlst_clear(stacks->stackB);
-	free(stacks->stackA);
-	free(stacks->stackB);
+	dlst_clear(stacks->stack_a);
+	dlst_clear(stacks->stack_b);
+	free(stacks->stack_a);
+	free(stacks->stack_b);
 	free(stacks);
 }

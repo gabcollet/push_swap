@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 10:43:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/08/31 15:06:16 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/01 10:06:53 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ void	reverse_rotate(t_stack *stack)
 void	push(t_stack *src, t_stack *dest)
 {
 	if (src->head)
-		push_I_hate_norminette(src, dest);
+		push_i_hate_norminette(src, dest);
 }
 
-void	push_I_hate_norminette(t_stack *src, t_stack *dest)
+void	push_i_hate_norminette(t_stack *src, t_stack *dest)
 {
 	t_dlist		*temp;
 
