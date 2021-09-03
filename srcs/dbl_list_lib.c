@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 11:24:11 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/01 13:51:23 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/03 13:51:00 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ t_dlist	*dlst_last(t_dlist *lst)
 	return (lst);
 }
 
-int		dlst_count(t_dlist *lst)
+int		dlst_len(t_dlist *lst)
 {
 	int	len;
 	
 	len = 0;
 	if (lst)
 	{
+		len++;
 		while (lst->next)
 		{
 			lst = lst->next;
@@ -92,6 +93,7 @@ t_dlist	*dlst_new(int content)
 		ft_putstr_fd("Error: Malloc failed\n", 2);
 		exit(EXIT_FAILURE);
 	}
+	list->pos = 0;
 	list->content = content;
 	list->next = NULL;
 	list->prev = NULL;

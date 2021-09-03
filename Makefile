@@ -6,35 +6,35 @@
 #    By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/17 19:56:08 by gcollet           #+#    #+#              #
-#    Updated: 2021/08/20 10:44:58 by gcollet          ###   ########.fr        #
+#    Updated: 2021/09/03 11:58:37 by gcollet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 	= push_swap.a
 PROG	= push_swap
 
 SRCS 	= srcs/main.c srcs/dbl_list_lib.c srcs/dbl_list_print.c srcs/utils.c\
 			srcs/operations.c
 OBJS 	= ${SRCS:.c=.o}
-MAIN	= srcs/main.c
 
 HEADER	= -I./includes/
 
 CC 		= gcc
 CFLAGS 	= -Wall -Wextra -Werror -g
 
-.c.o:		%.o : %.c
+.c.o:		
 					@gcc ${CFLAGS} ${HEADER} -c $< -o $(<:.c=.o)
 
-$(NAME):	${OBJS}
-					@echo "\033[33m----Compiling lib----"
+all:	${OBJS}
+					@printf "\033c"
+					@echo "\n\033[33m    LOADING [*......]"
+					@sleep 0.5
+					@printf "\033c"
+					@echo "\n\033[33m    LOADING [****...]"
 					@make re -C ./libft
-					@cp libft/libft.a ./$(NAME)
-					@ar -rcs ${NAME} ${OBJS}
-					@$(CC) $(NAME) ${MAIN} -o ${PROG}
-					@echo "\033[32mPush_Swap Compiled! ᕦ(\033[31m♥\033[32m_\033[31m♥\033[32m)ᕤ\n"
-
-all: 		${NAME}
+					@$(CC) ${OBJS} -L libft -l ft -o ${PROG}
+					@printf "\033c"
+					@echo "\n\033[33m    LOADING [*******]"
+					@echo "\n\033[32m\033[1mPush_Swap Compiled! ᕦ(\033[31m♥\033[32m_\033[31m♥\033[32m)ᕤ\n\033[0m"
 
 clean:
 					@make clean -C ./libft
@@ -42,9 +42,7 @@ clean:
 
 fclean: 	clean
 					@make fclean -C ./libft
-					@rm -f $(NAME)
 					@rm -f ${PROG}
-					@echo "\n\033[31mDeleting EVERYTHING! ⌐(ಠ۾ಠ)¬\n"
 
 re:			fclean all
 

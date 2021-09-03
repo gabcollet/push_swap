@@ -6,50 +6,50 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/02 09:59:14 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/03 16:15:11 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	find_pivot(t_dlist	*lst)
+int	assign_pos(int len, int i, t_dlist *lst)
 {
-	int		len;
-	int		pivot;
-	t_dlist	*smaller;
-	t_dlist *temp;
-	t_stack	*stack_c;
-	
-	len = dlst_count(lst);
-	pivot = 0;
-	temp = lst;
-	smaller = temp;
-	stack_c = malloc(sizeof(*stack_c));
-	if (stack_c == NULL)
-		error();
-	while (pivot <= (len / 2))
+	t_dlist	*temp;
+	t_dlist	*small;
+	t_dlist	*big;
+
+	while (len >= i)
 	{
-		while(temp->next) //trouve le plus petit node
+		temp = lst;
+		while (temp->pos != 0)
+			temp = temp->next;
+		small = temp;
+		big = temp;
+		while (temp)
 		{
-			printf("%d\n", smaller->content);
-			if (smaller->content > temp->content /* && smaller->content > stack_c->head->content */)
-			{
-				
-				smaller = temp;
-			}
+			if (small->content > temp->content && temp->pos == 0)
+				small = temp;
+			if (big->content < temp->content && temp->pos == 0)
+				big = temp;
 			temp = temp->next;
 		}
-		smaller = dlst_new(temp->content);
-		dlst_add_back(&stack_c->head, smaller);
-		temp = lst;
-		pivot = dlst_count(stack_c->head);
-		printf("%d\n", pivot);
+		small->pos = i++;
+		big->pos = len--;
 	}
-	while (pivot--)
-		stack_c->head = stack_c->head->next;
-	pivot = stack_c->head->content;
-	dlst_clear(stack_c);
-	return (pivot);
+	return (++len);
+}
+
+int	find_pivot(t_dlist *lst)
+{
+	int	len;
+	int	i;
+
+	i = 1;
+	len = dlst_len(lst);
+	len = assign_pos(len, i, lst);
+	while (lst->pos != len)
+		lst = lst->next;
+	return (lst->content);
 }
 
 void	create_dlist(t_stack *stack_a, char **argv)
@@ -83,7 +83,7 @@ void	create_dlist(t_stack *stack_a, char **argv)
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
-	int	pivot;
+	int			pivot;
 
 	stacks = initialise_stacks();
 	if (argc > 1)
