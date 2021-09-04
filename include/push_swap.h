@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/03 19:35:44 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/04 16:00:47 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct s_stacks
 	struct s_stack	*stack_a;
 	struct s_stack	*stack_b;
 }					t_stacks;
+
+int moves;
 
 /* main.c */
 int			assign_pos(int len, int i, t_dlist *lst);

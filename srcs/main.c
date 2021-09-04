@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/03 20:11:39 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/04 16:19:27 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,9 @@ void	create_dlist(t_stack *stack_a, char **argv)
 
 int	is_sorted(t_dlist *lst)
 {
-	while (lst)
+	while (lst->next)
 	{
-		if (lst->content > lst->next->content)
+		if (lst->content < lst->next->content)
 			lst = lst->next;
 		else
 			return (1);
@@ -117,17 +117,18 @@ int	main(int argc, char **argv)
 	int			pivot;
 	char str[10];
 	
+	moves = 0; //global value
 	stacks = initialise_stacks();
 	if (argc > 1)
 	{
 		create_dlist(stacks->stack_a, argv);
 		pivot = find_pivot(stacks->stack_a->head);
-		printf("%d\n", pivot);
+		/* printf("%d\n", pivot); */
 		move_a_to_b(stacks, pivot);
 		dlst_print(stacks);//fonction illégal :
 		scanf("%s", str);
-		/* while (is_sorted(stacks->stack_a->head) != 0)
-		{	 */
+		while (is_sorted(stacks->stack_a->head) != 0)
+		{	
 			while (stacks->stack_a->head != NULL)
 			{
 				pivot = find_median(stacks->stack_a->head);
@@ -142,8 +143,9 @@ int	main(int argc, char **argv)
 				dlst_print(stacks);//fonction illégal :
 				scanf("%s", str);
 			}
-		/* } */
+		}
 		clear_stacks(stacks);
+		printf("moves : %d\n", moves);
 	}
 	return (0);
 }
