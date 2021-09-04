@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/04 17:46:39 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/04 19:50:12 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
 	int			pivot;
-	char str[10];
+	// char str[10];
 	
 	moves = 0; //global value
 	stacks = initialise_stacks();
@@ -124,23 +124,23 @@ int	main(int argc, char **argv)
 		create_dlist(stacks->stack_a, argv);
 		pivot = find_pivot(stacks->stack_a->head);
 		move_a_to_b(stacks, pivot);
-		dlst_print(stacks);//fonction illégal :
-		scanf("%s", str);
+		// dlst_print(stacks);//fonction illégal :
+		// scanf("%s", str);
 		while (is_sorted(stacks->stack_a->head) != 0)
 		{	
 			while (stacks->stack_a->head != NULL)
 			{
 				pivot = find_median(stacks->stack_a->head);
 				move_a_to_b(stacks, pivot);
-				dlst_print(stacks);//fonction illégal :
-				scanf("%s", str);
+				// dlst_print(stacks);//fonction illégal :
+				// scanf("%s", str);
 			}
 			while (stacks->stack_b->head != NULL)
 			{
 				pivot = find_median(stacks->stack_b->head);
 				move_b_to_a(stacks, pivot);
-				dlst_print(stacks);//fonction illégal :
-				scanf("%s", str);
+				// dlst_print(stacks);//fonction illégal :
+				// scanf("%s", str);
 			}
 		}
 		clear_stacks(stacks);

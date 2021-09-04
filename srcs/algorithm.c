@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 18:31:02 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/04 17:54:00 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/04 19:47:56 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ int	is_in_order(t_dlist *lst, int order)
 void	move_a_to_b(t_stacks *stacks, int pivot)
 {
 	int	len;
-	int	order;
+	// int	order;
 
-	order = 0;
-	order = is_in_order(stacks->stack_a->tail, order);
+	// order = 0;
+	// order = is_in_order(stacks->stack_a->tail, order);
 	len = dlst_len(stacks->stack_a->head);
-	len -= order;
-	while (len--)
+	// len -= order;
+	while (len-- && stacks->stack_a->head->next)
 	{
 		if (stacks->stack_a->head->pos >= pivot && stacks->stack_a->head->next->pos >= pivot)
 		{
