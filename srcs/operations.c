@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 10:43:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/04 16:03:32 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/04 17:49:48 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	swap(t_stack *stack)
 	}
 }
 
-void	rotate(t_stack *stack)
+void	reverse_rotate(t_stack *stack)
 {
 	t_dlist	*temp;
 
@@ -47,7 +47,7 @@ void	rotate(t_stack *stack)
 	}
 }
 
-void	reverse_rotate(t_stack *stack)
+void	rotate(t_stack *stack)
 {
 	t_dlist	*temp;
 
