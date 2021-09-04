@@ -6,11 +6,11 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 11:24:11 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/03 13:51:00 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/03 18:21:51 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 t_dlist	*dlst_last(t_dlist *lst)
 {

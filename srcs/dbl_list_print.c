@@ -6,11 +6,11 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 12:13:09 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/01 13:00:15 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/03 20:28:46 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 char	*take_command(t_stacks *stacks, char *str)
 {
@@ -54,12 +54,12 @@ void	dlst_print(t_stacks *stacks)
 {
 	t_dlist	*temp_a;
 	t_dlist	*temp_b;
-	char str[30];
+/* 	char str[30]; */
 	
 	temp_a = stacks->stack_a->head;
 	temp_b = stacks->stack_b->head;
-	while (ft_strcmp(str, "quit"))
-	{
+/* 	while (ft_strcmp(str, "quit"))
+	{ */
 		printf("\n");
 		while(temp_a)
 		{
@@ -83,28 +83,28 @@ void	dlst_print(t_stacks *stacks)
 			temp_b = temp_b->next;
 		}
 		printf("    -     -\n");
-		printf("    A     B\n ");
+		printf("    A     B\n");
 
-		if (stacks->stack_a->head)
-			printf("\nHead A : %d\n", stacks->stack_a->head->content);
-		else
-			printf("\nHead A : NULL\n");
-		if (stacks->stack_a->tail)
-			printf("Tail A : %d\n", stacks->stack_a->tail->content);
-		else
-			printf("Tail A : NULL\n");
-		if (stacks->stack_b->head)
-			printf("\nHead B : %d\n", stacks->stack_b->head->content);
-		else
-			printf("\nHead B : NULL\n");
-		if (stacks->stack_b->tail)
-			printf("Tail B : %d\n", stacks->stack_b->tail->content);
-		else
-			printf("Tail B : NULL\n");
-		take_command(stacks, str);
+		// if (stacks->stack_a->head)
+		// 	printf("\nHead A : %d\n", stacks->stack_a->head->content);
+		// else
+		// 	printf("\nHead A : NULL\n");
+		// if (stacks->stack_a->tail)
+		// 	printf("Tail A : %d\n", stacks->stack_a->tail->content);
+		// else
+		// 	printf("Tail A : NULL\n");
+		// if (stacks->stack_b->head)
+		// 	printf("\nHead B : %d\n", stacks->stack_b->head->content);
+		// else
+		// 	printf("\nHead B : NULL\n");
+		// if (stacks->stack_b->tail)
+		// 	printf("Tail B : %d\n", stacks->stack_b->tail->content);
+		// else
+		// 	printf("Tail B : NULL\n");
+		/* take_command(stacks, str); */
 		temp_a = stacks->stack_a->head;
 		temp_b = stacks->stack_b->head;
-	}
+	/* } */
 }
 
 void	dlst_reverseprint(t_dlist *head)

@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/03 16:15:15 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/03 19:35:44 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <limits.h>
-# include "../libft/libft.h"
+# include "libft.h"
 #include <stdio.h> //fonction interdit
 
 typedef struct s_dlist
@@ -46,7 +46,7 @@ int			main(int argc, char **argv);
 
 /* utils.c */
 void		error(void);
-void		ft_isnum(char *str);
+void		ft_isint(char *str);
 void		check_duplicate(char **argv, int i);
 t_stacks	*initialise_stacks(void);
 void		clear_stacks(t_stacks *stacks);
@@ -66,9 +66,12 @@ char		*take_command(t_stacks *stacks, char *str);
 
 /* operations.c */
 void		swap(t_stack *stack);
-void		rotate(t_stack *stack_a);
-void		reverse_rotate(t_stack *stack_a);
+void		rotate(t_stack *stack);
+void		reverse_rotate(t_stack *stack);
 void		push(t_stack *src, t_stack *dest);
 void		push_i_hate_norminette(t_stack *src, t_stack *dest);
+
+void	move_a_to_b(t_stacks *stacks, int pivot);
+void	move_b_to_a(t_stacks *stacks, int pivot);
 
 #endif

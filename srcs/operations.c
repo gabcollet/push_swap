@@ -6,11 +6,11 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 10:43:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/01 10:06:53 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/03 18:21:31 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	swap(t_stack *stack)
 {
