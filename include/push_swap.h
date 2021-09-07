@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/07 11:45:58 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/07 15:41:20 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,13 @@ typedef struct s_stacks
 	struct s_stack	*stack_b;
 }					t_stacks;
 
-int moves; //argument global *****
+int moves; //global value *****
 
 /* main.c */
 int			assign_pos(int len, int i, t_dlist *lst);
-int			find_pivot(t_dlist	*lst);
 void		create_dlist(t_stack *stack_a, char **argv);
 int	is_sorted(t_dlist *lst);
-int	is_in_order(t_dlist *lst);
+int	is_in_order(t_dlist *lst, int i);
 int			main(int argc, char **argv);
 
 /* utils.c */
@@ -63,7 +62,7 @@ void		dlst_add_front(t_dlist **head, t_dlist *new);
 void		dlst_add_back(t_dlist **head, t_dlist *new);
 void		dlst_clear(t_stack *stack_a);
 
-/* dbl_list_print.c */
+/* dbl_list_print.c */ //fonction à enlever
 void		dlst_print(t_stacks *stacks);
 void		dlst_reverseprint(t_dlist *head);
 char		*take_command(t_stacks *stacks, char *str);
@@ -76,8 +75,10 @@ void		push(t_stack *src, t_stack *dest);
 void		push_i_hate_norminette(t_stack *src, t_stack *dest);
 
 /* algorithm.c */
+void	write_moves(char *str); //fonction à enlever
 int		find_median(t_dlist *lst);
-void	move_a_to_b(t_stacks *stacks, int pivot);
-void	move_b_to_a(t_stacks *stacks, int pivot);
+void	move_a_to_b(t_stacks *stacks);
+void	move_b_to_a(t_stacks *stacks);
+int		check_direction(t_dlist *lst, int pivot);
 
 #endif

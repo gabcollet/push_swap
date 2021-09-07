@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/07 11:56:05 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/07 13:56:02 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,13 @@ int	is_sorted(t_dlist *lst)
 	return (0);
 }
 
-int	is_in_order(t_dlist *lst)
+int	is_in_order(t_dlist *lst, int i)
 {
 	int	order;
 	if (lst && lst->prev)
 	{
 		order = 1;
-		while (lst->prev && lst->pos == lst->prev->pos + 1)
+		while (lst->prev && lst->pos == lst->prev->pos + i)
 		{
 			order++;
 			lst = lst->prev;
@@ -99,7 +99,6 @@ int	is_in_order(t_dlist *lst)
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
-	int			pivot;
 	int			len;
 	int			order;
 	// char str[10];
@@ -116,20 +115,26 @@ int	main(int argc, char **argv)
 			order = -1;
 			while (order < len && stacks->stack_a->head != NULL)
 			{
-				pivot = find_median(stacks->stack_a->head);
-				move_a_to_b(stacks, pivot);
+				move_a_to_b(stacks);
 				len = dlst_len(stacks->stack_a->head);
-				order = is_in_order(stacks->stack_a->tail);
+				order = is_in_order(stacks->stack_a->tail, 1);
 				// dlst_print(stacks);//fonction illégal :
 				// scanf("%s", str);
 			}
-			while (stacks->stack_b->head != NULL)
+			order = -1;
+			while (order < len && stacks->stack_b->head != NULL)
 			{
-				pivot = find_median(stacks->stack_b->head);
-				move_b_to_a(stacks, pivot);
+				move_b_to_a(stacks);
+				len = dlst_len(stacks->stack_b->head);
+				order = is_in_order(stacks->stack_b->tail, -1);
 				// dlst_print(stacks);//fonction illégal :
 				// scanf("%s", str);
 			}
+		}
+		while (stacks->stack_b->head)
+		{
+			push(stacks->stack_b, stacks->stack_a);
+			write_moves("pa");
 		}
 		clear_stacks(stacks);
 		printf("moves : %d\n", moves);
