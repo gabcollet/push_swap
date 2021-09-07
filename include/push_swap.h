@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/04 16:00:47 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/07 11:45:58 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,14 @@ typedef struct s_stacks
 	struct s_stack	*stack_b;
 }					t_stacks;
 
-int moves;
+int moves; //argument global *****
 
 /* main.c */
 int			assign_pos(int len, int i, t_dlist *lst);
 int			find_pivot(t_dlist	*lst);
 void		create_dlist(t_stack *stack_a, char **argv);
+int	is_sorted(t_dlist *lst);
+int	is_in_order(t_dlist *lst);
 int			main(int argc, char **argv);
 
 /* utils.c */
@@ -73,6 +75,8 @@ void		reverse_rotate(t_stack *stack);
 void		push(t_stack *src, t_stack *dest);
 void		push_i_hate_norminette(t_stack *src, t_stack *dest);
 
+/* algorithm.c */
+int		find_median(t_dlist *lst);
 void	move_a_to_b(t_stacks *stacks, int pivot);
 void	move_b_to_a(t_stacks *stacks, int pivot);
 

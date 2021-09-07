@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/04 19:50:12 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/07 11:56:05 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,38 +37,6 @@ int	assign_pos(int len, int i, t_dlist *lst)
 		big->pos = len--;
 	}
 	return (++len);
-}
-
-int	find_median(t_dlist *lst)
-{
-	int median;
-	int	len;
-	
-	median = 0;
-	len = 0;
-	while (lst)
-	{
-		median += lst->pos; 
-		len++;
-		lst = lst->next;
-	}
-	median /= len;
-	/* if ((median * 2) /2 != median)
-		median -= 1; */
-	return (median);
-}
-
-int	find_pivot(t_dlist *lst)
-{
-	int	len;
-	int	i;
-
-	i = 1;
-	len = dlst_len(lst);
-	len = assign_pos(len, i, lst);
-	/* while (lst->pos != len)
-		lst = lst->next; */
-	return (len);
 }
 
 void	create_dlist(t_stack *stack_a, char **argv)
@@ -111,27 +79,47 @@ int	is_sorted(t_dlist *lst)
 	return (0);
 }
 
+int	is_in_order(t_dlist *lst)
+{
+	int	order;
+	if (lst && lst->prev)
+	{
+		order = 1;
+		while (lst->prev && lst->pos == lst->prev->pos + 1)
+		{
+			order++;
+			lst = lst->prev;
+		}
+	}
+	else
+		order = 0;
+	return (order);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
 	int			pivot;
+	int			len;
+	int			order;
 	// char str[10];
 	
-	moves = 0; //global value
+	moves = 0; //global value *****
 	stacks = initialise_stacks();
 	if (argc > 1)
 	{
 		create_dlist(stacks->stack_a, argv);
-		pivot = find_pivot(stacks->stack_a->head);
-		move_a_to_b(stacks, pivot);
-		// dlst_print(stacks);//fonction illégal :
-		// scanf("%s", str);
+		len = dlst_len(stacks->stack_a->head);
+		assign_pos(len, 1, stacks->stack_a->head);
 		while (is_sorted(stacks->stack_a->head) != 0)
 		{	
-			while (stacks->stack_a->head != NULL)
+			order = -1;
+			while (order < len && stacks->stack_a->head != NULL)
 			{
 				pivot = find_median(stacks->stack_a->head);
 				move_a_to_b(stacks, pivot);
+				len = dlst_len(stacks->stack_a->head);
+				order = is_in_order(stacks->stack_a->tail);
 				// dlst_print(stacks);//fonction illégal :
 				// scanf("%s", str);
 			}
