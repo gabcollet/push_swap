@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/07 13:56:02 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/08 11:51:49 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,12 +132,9 @@ int	main(int argc, char **argv)
 			}
 		}
 		while (stacks->stack_b->head)
-		{
-			push(stacks->stack_b, stacks->stack_a);
-			write_moves("pa");
-		}
+			push(stacks->stack_b, stacks->stack_a, "pa");
 		clear_stacks(stacks);
-		printf("moves : %d\n", moves);
+		/* printf("moves : %d\n", moves); */
 	}
 	return (0);
 }

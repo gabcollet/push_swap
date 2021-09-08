@@ -6,13 +6,15 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 10:43:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/04 19:44:01 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/08 10:25:06 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack *stack)
+//penser à retirer tout les moves
+
+void	swap(t_stack *stack, char *str)
 {
 	t_dlist	*temp;
 
@@ -28,10 +30,13 @@ void	swap(t_stack *stack)
 		stack->head = temp;
 		if (stack->tail->content == stack->head->content)
 			stack->tail = stack->head->next;
+		ft_putstr_fd(str, 1);
+		ft_putstr_fd("\n", 1);
+		moves++;
 	}
 }
- //ca c'est inversé
-void	rotate(t_stack *stack)
+
+void	rotate(t_stack *stack, char *str)
 {
 	t_dlist	*temp;
 
@@ -44,10 +49,13 @@ void	rotate(t_stack *stack)
 		stack->tail->next = stack->head;
 		stack->tail = stack->head;
 		stack->head = temp;
+		ft_putstr_fd(str, 1);
+		ft_putstr_fd("\n", 1);
+		moves++;
 	}
 }
 
-void	reverse_rotate(t_stack *stack)
+void	reverse_rotate(t_stack *stack, char *str)
 {
 	t_dlist	*temp;
 
@@ -59,13 +67,21 @@ void	reverse_rotate(t_stack *stack)
 		stack->head->prev = stack->tail;
 		stack->head = stack->tail;
 		stack->tail = temp;
+		ft_putstr_fd(str, 1);
+		ft_putstr_fd("\n", 1);
+		moves++;
 	}
 }
 
-void	push(t_stack *src, t_stack *dest)
+void	push(t_stack *src, t_stack *dest, char *str)
 {
 	if (src->head)
+	{
 		push_i_hate_norminette(src, dest);
+		ft_putstr_fd(str, 1);
+		ft_putstr_fd("\n", 1);
+		moves++;
+	}
 }
 
 void	push_i_hate_norminette(t_stack *src, t_stack *dest)

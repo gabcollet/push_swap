@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/07 15:41:20 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/08 11:48:14 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int moves; //global value *****
 /* main.c */
 int			assign_pos(int len, int i, t_dlist *lst);
 void		create_dlist(t_stack *stack_a, char **argv);
-int	is_sorted(t_dlist *lst);
-int	is_in_order(t_dlist *lst, int i);
+int			is_sorted(t_dlist *lst);
+int			is_in_order(t_dlist *lst, int i);
 int			main(int argc, char **argv);
 
 /* utils.c */
@@ -68,17 +68,15 @@ void		dlst_reverseprint(t_dlist *head);
 char		*take_command(t_stacks *stacks, char *str);
 
 /* operations.c */
-void		swap(t_stack *stack);
-void		rotate(t_stack *stack);
-void		reverse_rotate(t_stack *stack);
-void		push(t_stack *src, t_stack *dest);
+void		swap(t_stack *stack, char *str);
+void		rotate(t_stack *stack, char *str);
+void		reverse_rotate(t_stack *stack, char *str);
+void		push(t_stack *src, t_stack *dest, char *str);
 void		push_i_hate_norminette(t_stack *src, t_stack *dest);
 
 /* algorithm.c */
-void	write_moves(char *str); //fonction à enlever
 int		find_median(t_dlist *lst);
 void	move_a_to_b(t_stacks *stacks);
 void	move_b_to_a(t_stacks *stacks);
-int		check_direction(t_dlist *lst, int pivot);
 
 #endif

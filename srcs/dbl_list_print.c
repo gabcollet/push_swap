@@ -6,13 +6,13 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 12:13:09 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/03 20:28:46 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/08 10:34:40 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*take_command(t_stacks *stacks, char *str)
+/* char	*take_command(t_stacks *stacks, char *str)
 {
 	printf("\nEnter command sa\\sb\\ss\\ra\\rb\\rr\\rra\\rrb\\rrr\\pb\\pa\\quit : ");
 	scanf("%s", str);
@@ -48,7 +48,7 @@ char	*take_command(t_stacks *stacks, char *str)
 	if (ft_strcmp(str, "pa") == 0)
 		push(stacks->stack_b, stacks->stack_a);
 	return (str);
-}
+} */
 
 void	dlst_print(t_stacks *stacks)
 {

@@ -6,104 +6,41 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 18:31:02 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/07 16:17:08 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/08 11:48:10 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	write_moves(char *str) //cette fonction peux allé directement dans les operations
-{
-	ft_putstr_fd(str, 1);
-	ft_putstr_fd("\n", 1);
-	moves++; //global value ---- remplacer par un | wc -l
-}
-
-int	check_direction(t_dlist *lst, int pivot)
-{
-	int ra;
-	int rra;
-	t_dlist *temp;
-
-	ra = 0;
-	rra = 0;
-	temp = dlst_last(lst);
-	while (lst->next && lst->pos != pivot)
-	{
-		lst = lst->next;
-		ra++;	
-	}
-	while (temp->prev && temp->pos != pivot)
-	{
-		temp = temp->prev;
-		rra++;
-	}
-	if (ra <= rra)
-		return (0); //si ca doit faire ra
-	return (1); //si ca doit faire rra
-}
-
 void	move_a_to_b(t_stacks *stacks)
 {
 	int	len;
 	int pivot;
-	/* int order; */
+	int order;
 
 	pivot = find_median(stacks->stack_a->head);
 	len = dlst_len(stacks->stack_a->head);
-	/* order = is_in_order(stacks->stack_a->tail, 1);
-	len = len - order; */
-	//quand c'est rendu à ce qui est trié il devrait rembobinner au lieu de le checker
+	order = is_in_order(stacks->stack_a->tail, 1);
+	if (order != 1)
+		len = len - order;
 	while (len-- && stacks->stack_a->head->next)
 	{
 		if (stacks->stack_a->head->pos >= pivot && stacks->stack_a->head->next->pos >= pivot)
-		{
-			rotate(stacks->stack_a);
-			write_moves("ra");
-		}
+			rotate(stacks->stack_a, "ra");
 		else
 		{
 			if (stacks->stack_a->head->pos > stacks->stack_a->head->next->pos)
-			{
-				swap(stacks->stack_a);
-				write_moves("sa");
-			}
-			push(stacks->stack_a, stacks->stack_b);
-			write_moves("pb");
+				swap(stacks->stack_a, "sa");
+			push(stacks->stack_a, stacks->stack_b, "pb");
 		}
 	}
-	/* if (order >= dlst_len(stacks->stack_a->head))
+	while (order-- > 0)
 	{
-		while (order--)
-		{
-			reverse_rotate(stacks->stack_a);
-			write_moves("rra");
-		}
-	}
-	else
-	{
-		while (order--)
-		{
-			rotate(stacks->stack_a);
-			write_moves("ra");
-		}
-	} */
-	//fonction qui valide si on doit aller en ra ou en rra
-	while (stacks->stack_a->head->pos != pivot)
-	{
-		if (check_direction(stacks->stack_a->head, pivot) == 0)
-		{
-			rotate(stacks->stack_a);
-			write_moves("ra");
-		}
+		if (order >= dlst_len(stacks->stack_a->head))
+			reverse_rotate(stacks->stack_a, "rra");
 		else
-		{
-			reverse_rotate(stacks->stack_a);
-			write_moves("rra");
-		}
+			rotate(stacks->stack_a, "ra");
 	}
-	push(stacks->stack_a, stacks->stack_b);
-	write_moves("pb");
 }
 
 void	move_b_to_a(t_stacks *stacks)
@@ -117,35 +54,18 @@ void	move_b_to_a(t_stacks *stacks)
 	{
 		if (stacks->stack_b->head->pos <= pivot)
 		{
-			rotate(stacks->stack_b);
-			write_moves("rb");
+			if (dlst_len(stacks->stack_b->head) == 1)
+				push(stacks->stack_b, stacks->stack_a, "pa");
+			else
+				rotate(stacks->stack_b, "rb");
 		}
 		else
 		{
 			if (stacks->stack_b->head->pos < stacks->stack_b->head->next->pos)
-			{
-				swap(stacks->stack_b);
-				write_moves("sb");
-			}
-			push(stacks->stack_b, stacks->stack_a);
-			write_moves("pa");
+				swap(stacks->stack_b, "sb");
+			push(stacks->stack_b, stacks->stack_a, "pa");
 		}
 	}
-	while (stacks->stack_b->head->pos != pivot)
-	{
-		if (check_direction(stacks->stack_b->head, pivot) == 0)
-		{
-			rotate(stacks->stack_b);
-			write_moves("rb");
-		}
-		else
-		{
-			reverse_rotate(stacks->stack_b);
-			write_moves("rrb");
-		}
-	}
-	push(stacks->stack_b, stacks->stack_a);
-	write_moves("pa");
 }
 
 int	find_median(t_dlist *lst)
