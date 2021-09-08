@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 10:43:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/08 10:25:06 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/08 14:08:22 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,12 @@ void	swap(t_stack *stack, char *str)
 		stack->head = temp;
 		if (stack->tail->content == stack->head->content)
 			stack->tail = stack->head->next;
-		ft_putstr_fd(str, 1);
-		ft_putstr_fd("\n", 1);
-		moves++;
+		if (str)
+		{
+			ft_putstr_fd(str, 1);
+			ft_putstr_fd("\n", 1);
+			moves++;
+		}
 	}
 }
 

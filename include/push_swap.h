@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/08 11:48:14 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:17:12 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <limits.h>
 # include "libft.h"
 #include <stdio.h> //fonction interdit
+# include <math.h>
 
 typedef struct s_dlist
 {
@@ -78,5 +79,6 @@ void		push_i_hate_norminette(t_stack *src, t_stack *dest);
 int		find_median(t_dlist *lst);
 void	move_a_to_b(t_stacks *stacks);
 void	move_b_to_a(t_stacks *stacks);
+void    ft_sort_radix(t_stack *a, t_stack *b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/08 11:51:49 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/08 18:40:25 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,15 @@ int	is_sorted(t_dlist *lst)
 int	is_in_order(t_dlist *lst, int i)
 {
 	int	order;
+
+	order = 0;
 	if (lst && lst->prev)
 	{
+		if (i == -1)
+		{
+			if (lst->pos != 1)
+				return (order);
+		}
 		order = 1;
 		while (lst->prev && lst->pos == lst->prev->pos + i)
 		{
@@ -91,8 +98,6 @@ int	is_in_order(t_dlist *lst, int i)
 			lst = lst->prev;
 		}
 	}
-	else
-		order = 0;
 	return (order);
 }
 
@@ -100,7 +105,7 @@ int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
 	int			len;
-	int			order;
+	/* int			order; */
 	// char str[10];
 	
 	moves = 0; //global value *****
@@ -110,7 +115,7 @@ int	main(int argc, char **argv)
 		create_dlist(stacks->stack_a, argv);
 		len = dlst_len(stacks->stack_a->head);
 		assign_pos(len, 1, stacks->stack_a->head);
-		while (is_sorted(stacks->stack_a->head) != 0)
+		/* while (is_sorted(stacks->stack_a->head) != 0)
 		{	
 			order = -1;
 			while (order < len && stacks->stack_a->head != NULL)
@@ -132,9 +137,10 @@ int	main(int argc, char **argv)
 			}
 		}
 		while (stacks->stack_b->head)
-			push(stacks->stack_b, stacks->stack_a, "pa");
+			push(stacks->stack_b, stacks->stack_a, "pa"); */
+		ft_sort_radix(stacks->stack_a, stacks->stack_b);
 		clear_stacks(stacks);
-		/* printf("moves : %d\n", moves); */
+		printf("moves : %d\n", moves);
 	}
 	return (0);
 }
