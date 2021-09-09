@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/08 18:40:25 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/09 17:48:23 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,16 @@ void	create_dlist(t_stack *stack_a, char **argv)
 
 int	is_sorted(t_dlist *lst)
 {
+	if (lst->pos != 1)
+		return (false);
 	while (lst->next)
 	{
 		if (lst->content < lst->next->content)
 			lst = lst->next;
 		else
-			return (1);
+			return (false);
 	}
-	return (0);
+	return (true);
 }
 
 int	is_in_order(t_dlist *lst, int i)
@@ -105,8 +107,6 @@ int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
 	int			len;
-	/* int			order; */
-	// char str[10];
 	
 	moves = 0; //global value *****
 	stacks = initialise_stacks();
@@ -115,30 +115,9 @@ int	main(int argc, char **argv)
 		create_dlist(stacks->stack_a, argv);
 		len = dlst_len(stacks->stack_a->head);
 		assign_pos(len, 1, stacks->stack_a->head);
-		/* while (is_sorted(stacks->stack_a->head) != 0)
-		{	
-			order = -1;
-			while (order < len && stacks->stack_a->head != NULL)
-			{
-				move_a_to_b(stacks);
-				len = dlst_len(stacks->stack_a->head);
-				order = is_in_order(stacks->stack_a->tail, 1);
-				// dlst_print(stacks);//fonction illégal :
-				// scanf("%s", str);
-			}
-			order = -1;
-			while (order < len && stacks->stack_b->head != NULL)
-			{
-				move_b_to_a(stacks);
-				len = dlst_len(stacks->stack_b->head);
-				order = is_in_order(stacks->stack_b->tail, -1);
-				// dlst_print(stacks);//fonction illégal :
-				// scanf("%s", str);
-			}
-		}
-		while (stacks->stack_b->head)
-			push(stacks->stack_b, stacks->stack_a, "pa"); */
-		ft_sort_radix(stacks->stack_a, stacks->stack_b);
+		selectionSort(stacks, len);
+		/* quicksort(stacks, len); */
+		/* sort_radix(stacks->stack_a, stacks->stack_b); */
 		clear_stacks(stacks);
 		printf("moves : %d\n", moves);
 	}

@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 10:43:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/08 14:08:22 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/09 16:09:38 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,14 @@ void	push(t_stack *src, t_stack *dest, char *str)
 {
 	if (src->head)
 	{
-		push_i_hate_norminette(src, dest);
+		push1(src, dest);
 		ft_putstr_fd(str, 1);
 		ft_putstr_fd("\n", 1);
 		moves++;
 	}
 }
 
-void	push_i_hate_norminette(t_stack *src, t_stack *dest)
+void	push1(t_stack *src, t_stack *dest)
 {
 	t_dlist		*temp;
 

@@ -6,14 +6,14 @@
 #    By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/17 19:56:08 by gcollet           #+#    #+#              #
-#    Updated: 2021/09/03 18:45:29 by gcollet          ###   ########.fr        #
+#    Updated: 2021/09/09 16:22:39 by gcollet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PROG	= push_swap
 
 SRCS 	= srcs/main.c srcs/dbl_list_lib.c srcs/dbl_list_print.c srcs/utils.c\
-			srcs/operations.c srcs/algorithm.c
+			srcs/operations.c srcs/quicksort.c srcs/radix.c srcs/selection.c
 OBJS 	= ${SRCS:.c=.o}
 
 HEADER	= -Iinclude/ -Ilibft
