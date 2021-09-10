@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/09 17:43:57 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/10 15:51:51 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,13 @@ int			find_median(t_dlist *lst);
 
 /* radix.c */
 int			power(int n, int ex);
-void    	sort_radix(t_stack *a, t_stack *b);
+void    	sort_radix(t_stack *a, t_stack *b, int len);
 
 /* selection.c */
 int			smallest_num(t_stack *stack);
 int			biggest_num(t_stack *stack);
-void		direction(t_stack *stack, int len, int small);
-void 		selectionSort(t_stacks *stacks, int len);
+void		direction(t_stack *stack, int len, int small, int x);
+void		selectionsort_a(t_stacks *s, int len);
+void		selectionsort_b(t_stacks *s, int len);
 
 #endif

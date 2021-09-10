@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 14:52:44 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/09 15:05:28 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/10 16:23:02 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,21 @@ int	power(int n, int ex)
 	return (pow);
 }
 
-void	sort_radix(t_stack *a, t_stack *b)
+void	sort_radix(t_stack *a, t_stack *b, int len)
 {
-	double	x;
-	int		i;
+	int	x;
+	int	y;
+	int temp;
 
+	y = 1;
 	x = 0;
-	while (x <= 8)
+	while (power(2, y) * 2 < len)
+		y++;
+	temp = len;
+	while (x <= y)
 	{
-		i = 500;
-		while (i-- > 0)
+		len = temp;
+		while (len-- > 0)
 		{
 			if ((a->head->pos ^ power(2, x)) > a->head->pos)
 				push(a, b, "pb");

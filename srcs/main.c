@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/10 11:36:11 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/10 16:43:14 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,9 +115,10 @@ int	main(int argc, char **argv)
 		create_dlist(stacks->stack_a, argv);
 		len = dlst_len(stacks->stack_a->head);
 		assign_pos(len, 1, stacks->stack_a->head);
-		selectionSort(stacks, len); //pour 30 et moins
-		/* quicksort(stacks, len); */
-		/* sort_radix(stacks->stack_a, stacks->stack_b); */ //pour le 500 et +
+		if (len < 30)
+			selectionsort_a(stacks, len);
+		else
+			sort_radix(stacks->stack_a, stacks->stack_b, len);
 		clear_stacks(stacks);
 		printf("moves : %d\n", moves);
 	}

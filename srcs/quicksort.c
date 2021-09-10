@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 18:31:02 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/09 16:14:28 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/10 15:44:42 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void	quicksort(t_stacks *stacks, int len)
 			}
 			// dlst_print(stacks);//fonction illégal :
 			// scanf("%s", str);
+			if (stacks->stack_b->head && dlst_len(stacks->stack_b->head) < 20)
+				selectionsort_b(stacks, len);
 		}
 	}
 }
