@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/13 11:02:46 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 11:24:16 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int			main(int argc, char **argv);
 
 /* utils.c */
 void		error(void);
+void		dlst_clear(t_stack *stack_a);
 void		check_duplicate(char **argv, int i);
 t_stacks	*initialise_stacks(void);
 void		clear_stacks(t_stacks *stacks);
-void		dlst_clear(t_stack *stack_a);
 
 /* operations.c */
 void		swap(t_stack *stack, char *str);

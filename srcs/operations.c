@@ -6,13 +6,11 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 10:43:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/13 10:10:13 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 11:23:36 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-//penser à retirer tout les moves
 
 void	swap(t_stack *stack, char *str)
 {

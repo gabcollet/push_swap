@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 10:53:33 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/13 11:06:35 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 11:15:09 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_isint(char *str)
 	i = 0;
 	temp = ft_atol(str);
 	if (temp < INT_MIN || temp > INT_MAX)
-		error();
+		return (1);
 	if (str[0] == '-')
 		i++;
 	while (str[i])

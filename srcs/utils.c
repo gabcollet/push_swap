@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 15:44:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/13 11:02:40 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 11:24:07 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,6 @@ void	dlst_clear(t_stack *stack)
 		stack->head = temp;
 	}
 }
-
-/* void	ft_isint(char *str)
-{
-	int		i;
-	long	temp;
-
-	i = 0;
-	temp = ft_atol(str);
-	if (temp < INT_MIN || temp > INT_MAX)
-		error();
-	if (str[0] == '-')
-		i++;
-	while (str[i])
-	{
-		if (ft_isdigit(str[i++]) == 0)
-			error();
-	}
-} */
 
 void	check_duplicate(char **argv, int i)
 {
