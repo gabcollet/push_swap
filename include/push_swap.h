@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/13 10:26:00 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 10:56:28 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,6 @@
 # include <limits.h>
 # include <stdbool.h>
 # include "libft.h"
-
-/* typedef struct s_dlist
-{
-	int				content;
-	struct s_dlist	*next;
-	struct s_dlist	*prev;
-	int				pos;
-}					t_dlist; */
 
 typedef struct s_stack
 {
@@ -47,17 +39,11 @@ int			main(int argc, char **argv);
 
 /* utils.c */
 void		error(void);
-void		ft_isint(char *str);
 void		check_duplicate(char **argv, int i);
 t_stacks	*initialise_stacks(void);
 void		clear_stacks(t_stacks *stacks);
 
 /* dbl_list_lib.c */
-t_dlist		*dlst_last(t_dlist *lst);
-int			dlst_len(t_dlist *lst);
-t_dlist		*dlst_new(int content);
-void		dlst_add_front(t_dlist **head, t_dlist *new);
-void		dlst_add_back(t_dlist **head, t_dlist *new);
 void		dlst_clear(t_stack *stack_a);
 
 /* operations.c */
@@ -69,7 +55,7 @@ void		push1(t_stack *src, t_stack *dest);
 
 /* radix.c */
 int			power(int n, int ex);
-void    	sort_radix(t_stack *a, t_stack *b, int len);
+void		sort_radix(t_stack *a, t_stack *b, int len);
 
 /* selection.c */
 int			smallest_num(t_stack *stack);

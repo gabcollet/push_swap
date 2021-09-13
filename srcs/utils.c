@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 15:44:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/03 18:31:53 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 10:53:55 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	error(void)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_isint(char *str)
+/* void	ft_isint(char *str)
 {
 	int		i;
 	long	temp;
@@ -34,7 +34,7 @@ void	ft_isint(char *str)
 		if (ft_isdigit(str[i++]) == 0)
 			error();
 	}
-}
+} */
 
 void	check_duplicate(char **argv, int i)
 {
