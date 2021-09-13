@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 16:22:20 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/13 10:18:16 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 14:32:14 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	selectionsort(t_stacks *s, int len)
 			rotate(s->stack_a, "ra");
 		else if (s->stack_a->head->next->pos == big)
 			reverse_rotate(s->stack_a, "rra");
-		if (is_in_order(s->stack_a->tail, 1) != 3)
+		if (is_in_order(s->stack_a->tail, 1) != dlst_len(s->stack_a->head))
 			swap(s->stack_a, "sa");
 		while (s->stack_b->head != NULL)
 			push(s->stack_b, s->stack_a, "pa");
