@@ -6,7 +6,7 @@
 #    By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/17 19:56:08 by gcollet           #+#    #+#              #
-#    Updated: 2021/09/13 11:03:12 by gcollet          ###   ########.fr        #
+#    Updated: 2021/09/13 13:47:29 by gcollet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ CFLAGS 	= -Wall -Wextra -Werror -g
 .c.o:		
 					@gcc ${CFLAGS} ${HEADER} -c $< -o $(<:.c=.o)
 
-all:	${OBJS}
+all:	${PROG}
+
+${PROG}:	${OBJS}
 					@printf "\033c"
 					@echo "\n\033[33m    COMPILING [*......]"
 					@sleep 0.5
