@@ -6,13 +6,13 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 11:24:11 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/03 18:21:51 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 10:33:56 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_dlist	*dlst_last(t_dlist *lst)
+/* t_dlist	*dlst_last(t_dlist *lst)
 {
 	if (lst)
 	{
@@ -20,12 +20,12 @@ t_dlist	*dlst_last(t_dlist *lst)
 			lst = lst->next;
 	}
 	return (lst);
-}
+} */
 
-int		dlst_len(t_dlist *lst)
+/* int	dlst_len(t_dlist *lst)
 {
 	int	len;
-	
+
 	len = 0;
 	if (lst)
 	{
@@ -37,9 +37,9 @@ int		dlst_len(t_dlist *lst)
 		}
 	}
 	return (len);
-}
+} */
 
-void	dlst_add_back(t_dlist **head, t_dlist *new)
+/* void	dlst_add_back(t_dlist **head, t_dlist *new)
 {
 	t_dlist	*temp;
 
@@ -55,7 +55,7 @@ void	dlst_add_back(t_dlist **head, t_dlist *new)
 		temp->next = new;
 		new->prev = temp;
 	}
-}
+} */
 
 void	dlst_clear(t_stack *stack)
 {	
@@ -71,7 +71,7 @@ void	dlst_clear(t_stack *stack)
 	}
 }
 
-void	dlst_add_front(t_dlist **head, t_dlist *new)
+/* void	dlst_add_front(t_dlist **head, t_dlist *new)
 {
 	if (*head == NULL)
 		*head = new;
@@ -81,9 +81,9 @@ void	dlst_add_front(t_dlist **head, t_dlist *new)
 		new->next = *head;
 		*head = new;
 	}
-}
+} */
 
-t_dlist	*dlst_new(int content)
+/* t_dlist	*dlst_new(int content)
 {
 	t_dlist	*list;
 
@@ -98,4 +98,4 @@ t_dlist	*dlst_new(int content)
 	list->next = NULL;
 	list->prev = NULL;
 	return (list);
-}
+} */

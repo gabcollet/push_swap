@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 14:52:44 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/10 16:23:02 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 10:16:53 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	sort_radix(t_stack *a, t_stack *b, int len)
 {
 	int	x;
 	int	y;
-	int temp;
+	int	temp;
 
 	y = 1;
 	x = 0;

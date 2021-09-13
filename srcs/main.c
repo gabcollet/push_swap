@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/10 16:43:14 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 10:16:43 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,7 @@ int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
 	int			len;
-	
-	moves = 0; //global value *****
+
 	stacks = initialise_stacks();
 	if (argc > 1)
 	{
@@ -116,11 +115,10 @@ int	main(int argc, char **argv)
 		len = dlst_len(stacks->stack_a->head);
 		assign_pos(len, 1, stacks->stack_a->head);
 		if (len < 30)
-			selectionsort_a(stacks, len);
+			selectionsort(stacks, len);
 		else
 			sort_radix(stacks->stack_a, stacks->stack_b, len);
 		clear_stacks(stacks);
-		printf("moves : %d\n", moves);
 	}
 	return (0);
 }

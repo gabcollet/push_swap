@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 10:43:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/09 16:09:38 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 10:10:13 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	swap(t_stack *stack, char *str)
 		{
 			ft_putstr_fd(str, 1);
 			ft_putstr_fd("\n", 1);
-			moves++;
 		}
 	}
 }
@@ -54,7 +53,6 @@ void	rotate(t_stack *stack, char *str)
 		stack->head = temp;
 		ft_putstr_fd(str, 1);
 		ft_putstr_fd("\n", 1);
-		moves++;
 	}
 }
 
@@ -72,7 +70,6 @@ void	reverse_rotate(t_stack *stack, char *str)
 		stack->tail = temp;
 		ft_putstr_fd(str, 1);
 		ft_putstr_fd("\n", 1);
-		moves++;
 	}
 }
 
@@ -83,7 +80,6 @@ void	push(t_stack *src, t_stack *dest, char *str)
 		push1(src, dest);
 		ft_putstr_fd(str, 1);
 		ft_putstr_fd("\n", 1);
-		moves++;
 	}
 }
 

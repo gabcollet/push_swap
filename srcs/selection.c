@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 16:22:20 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/10 15:47:07 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 10:18:16 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	biggest_num(t_stack *stack)
 	return (big);
 }
 
-void	direction(t_stack *stack, int len, int small, int x)
+void	direction(t_stack *stack, int len, int small)
 {
 	t_dlist	*temp;
 	int		i;
@@ -59,22 +59,12 @@ void	direction(t_stack *stack, int len, int small, int x)
 			break ;
 	}
 	if (i < (len / 2))
-	{
-		if (x == 1)
-			rotate(stack, "ra");
-		else
-			rotate(stack, "rb");
-	}
+		rotate(stack, "ra");
 	else
-	{
-		if (x == 1)
-			reverse_rotate(stack, "rra");
-		else
-			reverse_rotate(stack, "rrb");
-	}	
+		reverse_rotate(stack, "rra");
 }
 
-void	selectionsort_a(t_stacks *s, int len)
+void	selectionsort(t_stacks *s, int len)
 {
 	int	small;
 	int	big;
@@ -87,7 +77,7 @@ void	selectionsort_a(t_stacks *s, int len)
 			if (is_in_order(s->stack_a->tail, 1) != dlst_len(s->stack_a->head))
 			{
 				while (s->stack_a->head->pos != small)
-					direction(s->stack_a, len, small, 1);
+					direction(s->stack_a, len, small);
 			}
 			push(s->stack_a, s->stack_b, "pb");
 		}
@@ -101,30 +91,4 @@ void	selectionsort_a(t_stacks *s, int len)
 		while (s->stack_b->head != NULL)
 			push(s->stack_b, s->stack_a, "pa");
 	}
-}
-
-void	selectionsort_b(t_stacks *s, int len)
-{
-	int	small;
-	int	big;
-
-	small = smallest_num(s->stack_b);
-	while (dlst_len(s->stack_b->head) > 3)
-	{
-		big = biggest_num(s->stack_b);
-		if (is_in_order(s->stack_b->head, -1) != dlst_len(s->stack_b->head))
-		{
-			while (s->stack_b->head->pos != big)
-				direction(s->stack_b, len, big, 2);
-		}
-		push(s->stack_b, s->stack_a, "pa");
-	}
-	if (s->stack_b->head->pos == small)
-		rotate(s->stack_b, "rb");
-	else if (s->stack_b->head->next->pos == small)
-		reverse_rotate(s->stack_b, "rrb");
-	if (is_in_order(s->stack_b->tail, -1) != 3)
-		swap(s->stack_b, "sb");
-	while (s->stack_b->head != NULL)
-		push(s->stack_b, s->stack_a, "pa");
 }
