@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:42:12 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/13 10:16:43 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 11:07:04 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void	create_dlist(t_stack *stack_a, char **argv)
 		check_duplicate(args, 0);
 		while (args[y])
 		{
-			ft_isint(args[y]);
+			if (ft_isint(args[y]) == 1);
+				error();
 			temp = dlst_new(ft_atoi(args[y++]));
 			dlst_add_back(&stack_a->head, temp);
 		}

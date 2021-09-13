@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 15:44:36 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/13 10:53:55 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 11:02:40 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,20 @@ void	error(void)
 {
 	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(EXIT_FAILURE);
+}
+
+void	dlst_clear(t_stack *stack)
+{	
+	t_dlist	*temp;
+
+	if (stack->head == NULL)
+		return ;
+	while (stack->head)
+	{
+		temp = stack->head->next;
+		free(stack->head);
+		stack->head = temp;
+	}
 }
 
 /* void	ft_isint(char *str)

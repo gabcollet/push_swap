@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:57:49 by gcollet           #+#    #+#             */
-/*   Updated: 2021/09/13 10:56:28 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/09/13 11:02:46 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void		error(void);
 void		check_duplicate(char **argv, int i);
 t_stacks	*initialise_stacks(void);
 void		clear_stacks(t_stacks *stacks);
-
-/* dbl_list_lib.c */
 void		dlst_clear(t_stack *stack_a);
 
 /* operations.c */
